@@ -45,4 +45,5 @@
 ### `02_pack`
 - order properly vars to consume less storage slots
 ### `03_deposit`
+- simulate a 32 eth deposit. I retreived the calldatas on an existing tx in deployed ethereum contract  
 ### `04_brute_power`
