@@ -39,7 +39,9 @@
 - you can write your notes in the following sections
 
 ### `00_welcome`
+- manual removal of array elements by shifting and pop
 ### `01_delegation`
+- delegate call of inc in random implementations of counter. beware of needed me adresses to match the storage offset
 ### `02_pack`
 ### `03_deposit`
 ### `04_brute_power`
