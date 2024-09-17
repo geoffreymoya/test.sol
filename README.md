@@ -43,5 +43,6 @@
 ### `01_delegation`
 - delegate call of inc in random implementations of counter. beware of needed me adresses to match the storage offset
 ### `02_pack`
+- order properly vars to consume less storage slots
 ### `03_deposit`
 ### `04_brute_power`
