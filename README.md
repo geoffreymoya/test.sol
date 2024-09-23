@@ -39,11 +39,16 @@
 - you can write your notes in the following sections
 
 ### `00_welcome`
-- manual removal of array elements by shifting and pop
+- SUCCESS : manual removal of array elements by shifting and pop
 ### `01_delegation`
-- delegate call of inc in random implementations of counter. beware of needed me adresses to match the storage offset
+- SUCCESS : delegate call of inc in random implementations of counter. beware of needed "me" and "_me"  adresses to match the storage offset
 ### `02_pack`
-- order properly vars to consume less storage slots
+- SUCCESS : order properly vars to consume less storage slots
 ### `03_deposit`
-- simulate a 32 eth deposit. I retreived the calldatas on an existing tx in deployed ethereum contract  
+- SUCCESS : simulate a 32 stake eth deposit. I retreived the calldatas on an existing tx in deployed mainnet ethereum Staking contract  
 ### `04_brute_power`
+- FAIL
+- First approach is as its name is to perform a brute force to find a vanity address. With https://github.com/MrSpike63/vanity-eth-address I manage to find a 7 zero addrress with my RTX 3080 Ti GPU in 10 minutes. It will take several decades to find a 14 zero address.
+- On a second way, there is another path :  instead of returning Exteranlly Owned address (EOA), the GetSigner() return a smart contract with EIP1271 implementation of isValidSignature() and return the magic number. But the address contract created by CREATE or CREATE2 doesn't match a 14 zero address. We fall in the same previous issue. 
+- Third if foundry cheatcodes are allowed it will be possible to trick the sig verification :  the GetSigner() method returns a 14 zero address and perform a vm.mockCall() on its address to implement a bypass isValidSignature().
+- I also tried to manipulate storage vars in an assmbly section. It's useless beacause the script contract get signer value once and store it in a local variable.
